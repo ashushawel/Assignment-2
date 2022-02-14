@@ -1,0 +1,38 @@
+package autotest;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
+
+
+public class Autotest {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+      System.setProperty("webdriver.chrome.driver", "C:\\Users\\amanu\\Downloads\\chromedriver.exe");
+
+  try{
+            WebDriver driver = new ChromeDriver();
+            driver.get("https://www.moe.gov.et/");
+            
+            
+            List<WebElement> search = driver.findElements(By.tagName("a"));
+            int count = search.size();
+            
+            
+            for(int i =0;i<count;i++){
+                    String links = search.get(i).getAttribute("href");
+                    
+                    System.out.println(links);  
+            }
+                  
+  }
+  catch(Exception e){}
+            
+    }
+    
+}
